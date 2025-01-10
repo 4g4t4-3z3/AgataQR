@@ -35,7 +35,7 @@ pip install -r requirements.txt
 
 Ejecuta el programa:
 
-    python agata_faucets_generator_qr.py
+    python Agata1.py
 
 Contribuciones
 
