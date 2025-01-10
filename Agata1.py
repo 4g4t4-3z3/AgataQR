@@ -36,7 +36,7 @@ def generar_qr():
 
 # Función para actualizar el programa
 def buscar_actualizaciones():
-    url_github = "https://github.com/TuUsuario/TuRepositorio"
+    url_github = "https://github.com/4g4t4-3z3/AgataQR.git"
     messagebox.showinfo("Actualización", "Revisando actualizaciones en GitHub...")
     webbrowser.open(url_github)
 
@@ -69,7 +69,7 @@ entrada_texto.pack(pady=10)
 boton_qr = tk.Button(ventana, text="Generar QR", font=("Arial", 12), bg="#4CAF50", fg="white", command=generar_qr)
 boton_qr.pack(pady=10)
 
-boton_actualizar = tk.Button(ventana, text="Buscar Actualizaciones", font=("Arial", 12), bg="#FF9800", fg="white", command=buscar_actualizaciones)
+boton_actualizar = tk.Button(ventana, text=" Actualizaciones", font=("Arial", 12), bg="#FF9800", fg="white", command=buscar_actualizaciones)
 boton_actualizar.pack(pady=10)
 
 boton_salir = tk.Button(ventana, text="Salir", font=("Arial", 12), bg="#F44336", fg="white", command=salir)
