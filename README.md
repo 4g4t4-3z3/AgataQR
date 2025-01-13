@@ -1,10 +1,10 @@
 # AgataQR
 Agata Faucets Generator QR
 
-Agata Faucets Generator QR es una herramienta intuitiva y fácil de usar para generar códigos QR personalizados, específicamente diseñada para la industria de la grifería. Este programa permite a los usuarios ingresar recetas o instrucciones detalladas sobre la fabricación de productos, como lavatorios monocomando, y luego genera un código QR que puede ser escaneado para acceder a esa información de manera rápida y eficiente.
+Agata Faucets Generator QR es una herramienta intuitiva y fácil de usar para generar códigos QR personalizados, específicamente diseñada para la industria de la grifería. Este programa permite a los usuarios ingresar las piezas o instrucciones detalladas sobre la fabricación de productos, como lavatorios monocomando, y luego genera un código QR que puede ser escaneado para acceder a esa información de manera rápida y eficiente.
 Características
 
-    Generación de QR: Permite ingresar texto con instrucciones o recetas para armar productos, como un lavatorio monocomando, y luego genera un código QR que almacena dicha información.
+    Generación de QR: Permite ingresar texto con instrucciones o piezas para armar productos, como un lavatorio monocomando, y luego genera un código QR que almacena dicha información.
 
     Interfaz Gráfica Intuitiva: Con una interfaz limpia y profesional, los usuarios pueden ingresar texto fácilmente y generar los QR sin complicaciones. La ventana tiene un tamaño fijo y opciones claras para realizar cada acción.
 
