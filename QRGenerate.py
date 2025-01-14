@@ -94,7 +94,7 @@ def cambiar_idioma(idioma):
 # Configuración principal de la ventana
 root = tk.Tk()
 root.title("Agata Faucets QR Generator")
-root.geometry("800x600")
+root.geometry("800x100")
 root.resizable(False, False)
 
 # Menú superior
