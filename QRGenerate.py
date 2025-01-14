@@ -66,7 +66,7 @@ def cambiar_idioma(idioma):
     textos = {
         "es": {
             "title": "Generador de QR de Agata Faucets",
-            "generate": "Generar QR",
+            "generate": "Generar ",
             "update": "Buscar Actualizaciones",
             "exit": "Salir",
             "about": "Acerca de",
