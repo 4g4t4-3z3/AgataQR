@@ -1,4 +1,5 @@
 import os
+import sys
 import subprocess
 import tkinter as tk
 from tkinter import messagebox
@@ -47,15 +48,18 @@ def generar_qr():
         messagebox.showwarning("Cancelado", "No se guardó el QR.")
 
 def actualizar_programa():
-    """Actualiza el programa usando `git pull`."""
+    """Actualiza el programa usando `git pull` y reinicia la aplicación."""
     try:
         result = subprocess.run(["git", "pull", "origin", "main"], capture_output=True, text=True)
         if "Already up to date." in result.stdout:
             messagebox.showinfo("Actualización", "El programa ya está actualizado.")
         else:
-            messagebox.showinfo("Actualización", "El programa se actualizó correctamente. Reinicia para aplicar los cambios.")
+            messagebox.showinfo("Actualización", "El programa se actualizó correctamente. Reiniciando...")
+            root.destroy()  # Cierra la ventana actual
+            os.execl(sys.executable, sys.executable, *sys.argv)  # Reinicia el programa
     except Exception as e:
         messagebox.showerror("Error", f"No se pudo actualizar el programa.\n{e}")
+
 
 def cambiar_idioma(idioma):
     """Cambia los textos de la interfaz según el idioma seleccionado."""
