@@ -2,8 +2,8 @@
 
 # Variables
 NOMBRE_PROGRAMA="Generador de QR"
-RUTA_ICONO="$PWD/icono.ico"
-RUTA_SCRIPT="$PWD/tu_script.py"
+RUTA_ICONO="$PWD/qrgo.ico"
+RUTA_SCRIPT="$PWD/QRGenerate.py"
 RUTA_DESTINO="/opt/generador_qr"
 RUTA_DESKTOP="$HOME/.local/share/applications/generador_qr.desktop"
 
@@ -22,8 +22,8 @@ cat << EOF > $RUTA_DESKTOP
 Version=1.0
 Type=Application
 Name=$NOMBRE_PROGRAMA
-Exec=python3 $RUTA_DESTINO/tu_script.py
-Icon=$RUTA_DESTINO/icono.ico
+Exec=python3 $RUTA_DESTINO/QRGenerate.py
+Icon=$RUTA_DESTINO/qrgo.ico
 Terminal=false
 EOF
 
