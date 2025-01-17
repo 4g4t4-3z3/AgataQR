@@ -4,7 +4,7 @@
 NOMBRE_PROGRAMA="QRGenerate"
 RUTA_ICONO="$PWD/qrgo.ico"
 RUTA_SCRIPT="$PWD/QRGenerate.py"
-RUTA_DESTINO="/opt/QRGenerate"
+RUTA_DESTINO="/opt/AgataQR"
 RUTA_DESKTOP="$HOME/.local/share/applications/QRGenerate.desktop"
 
 # Crear carpeta de destino
@@ -22,7 +22,7 @@ cat << EOF > $RUTA_DESKTOP
 Version=1.0
 Type=Application
 Name=$NOMBRE_PROGRAMA
-Exec=python3 $RUTA_DESTINO/QRGenerate.py
+Exec=/usr/bin/python3 $RUTA_DESTINO/QRGenerate.py
 Icon=$RUTA_DESTINO/qrgo.ico
 Terminal=false
 EOF
