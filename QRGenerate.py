@@ -116,8 +116,8 @@ menu_language.add_command(label="English", command=lambda: cambiar_idioma("en"))
 menu_bar.add_cascade(label="Idioma", menu=menu_language)
 
 # Título
-shadow_label = tk.Label(root, text="Generador de QR", font=("Arial", 28, "bold"), fg="black")
-shadow_label.place(x=239, y=15)
+#shadow_label = tk.Label(root, text="Generador de QR", font=("Arial", 28, "bold"), fg="black")
+#shadow_label.place(x=239, y=15)
 
 label_title = tk.Label(root, text="Generador de QR", font=("Arial", 28, "bold"), fg="blue")
 label_title.pack(pady=10)
