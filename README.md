@@ -43,10 +43,10 @@ Opcional: Instalación del programa con acceso directo
 Si prefieres que el programa tenga un acceso directo y se ejecute como cualquier otra aplicación, sigue estas instrucciones según tu sistema operativo:
 Linux
 
-Ejecuta el script de instalación:
+Ejecuta el script de instalación para Linux:
 
-    chmod +x setup.sh
-    ./setup.sh
+    chmod +x setupLinux.sh
+    ./setupLinux.sh
 
 Esto creará un acceso directo en tu menú de aplicaciones. Busca QRGo y ejecútalo.
 
@@ -54,9 +54,9 @@ El ícono personalizado (icono.ico) y el programa se instalarán automáticament
 
 Windows
 
-Ejecuta el script de instalación:
+Ejecuta el script de instalación para Windows:
 
-    python setup.py
+    python setupWindows.py
 
 Esto creará un acceso directo en tu escritorio con el ícono personalizado.
 Si el módulo winshell no está instalado, instálalo primero:
