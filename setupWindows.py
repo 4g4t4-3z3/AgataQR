@@ -6,8 +6,8 @@ def instalar_programa():
     nombre_programa = "Generador de QR"
     ruta_origen = os.path.dirname(os.path.abspath(__file__))
     ruta_destino = os.path.join("C:\\", "Generador_QR")
-    ruta_icono = os.path.join(ruta_destino, "icono.ico")
-    ruta_script = os.path.join(ruta_destino, "tu_script.py")
+    ruta_icono = os.path.join(ruta_destino, "qrgo.ico")
+    ruta_script = os.path.join(ruta_destino, "QRGenerate.py")
     ruta_acceso_directo = os.path.join(winshell.desktop(), f"{nombre_programa}.lnk")
 
     # Crear carpeta de destino
@@ -15,8 +15,8 @@ def instalar_programa():
         os.makedirs(ruta_destino)
 
     # Copiar archivos al destino
-    shutil.copyfile(os.path.join(ruta_origen, "tu_script.py"), ruta_script)
-    shutil.copyfile(os.path.join(ruta_origen, "icono.ico"), ruta_icono)
+    shutil.copyfile(os.path.join(ruta_origen, "QRGenerate.py"), ruta_script)
+    shutil.copyfile(os.path.join(ruta_origen, "qrgo.ico"), ruta_icono)
 
     # Crear acceso directo
     with winshell.shortcut(ruta_acceso_directo) as acceso_directo:
