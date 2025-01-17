@@ -1,0 +1,3 @@
+Pillow
+qrcode
+Windows; platform_system == "Windows"
