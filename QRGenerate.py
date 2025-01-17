@@ -66,19 +66,19 @@ def cambiar_idioma(idioma):
     textos = {
         "es": {
             "title": "Generador de QR",
-            "generate": "Generar QR",
-            "update": "Buscar Actualizaciones",
-            "exit": "Salir",
+            "generate": "🖋 Generar QR",
+            "update": "🔍 Buscar Actualizaciones",
+            "exit": "⛔ Salir",
             "about": "Acerca de",
-            "info": "Este programa genera códigos QR a partir de texto."
+            "info": "Info."
         },
         "en": {
             "title": "QR Generator",
-            "generate": "Generate QR",
-            "update": "Check for Updates",
-            "exit": "Exit",
+            "generate": "🖋 Generate QR",
+            "update": "🔍 Check for Updates",
+            "exit": "⛔ Exit",
             "about": "About",
-            "info": "This program generates QR codes from text."
+            "info": "Info."
         }
     }
 
@@ -116,9 +116,6 @@ menu_language.add_command(label="English", command=lambda: cambiar_idioma("en"))
 menu_bar.add_cascade(label="Idioma", menu=menu_language)
 
 # Título
-#shadow_label = tk.Label(root, text="Generador de QR", font=("Arial", 28, "bold"), fg="black")
-#shadow_label.place(x=239, y=15)
-
 label_title = tk.Label(root, text="Generador de QR", font=("Arial", 28, "bold"), fg="blue")
 label_title.pack(pady=10)
 
