@@ -1,12 +1,25 @@
 import os
-import sys
+import platform
 import subprocess
 import tkinter as tk
 from tkinter import messagebox
 from tkinter import filedialog
 import qrcode
 from PIL import Image, ImageTk
-from reportlab.pdfgen import canvas
+
+# Detectar el sistema operativo
+sistema_operativo = platform.system()
+
+# Configuración específica según el sistema operativo
+if sistema_operativo == "Windows":
+    default_save_path = "C:\\Users\\Usuario\\Documents\\"
+    git_command = ["git", "pull", "origin", "main"]
+elif sistema_operativo == "Linux":
+    default_save_path = "/home/usuario/"
+    git_command = ["git", "pull", "origin", "main"]
+else:
+    default_save_path = "./"
+    git_command = ["git", "pull", "origin", "main"]
 
 def generar_qr():
     """Genera un QR con el texto proporcionado por el usuario y permite guardarlo."""
@@ -26,54 +39,41 @@ def generar_qr():
     img = qr.make_image(fill_color="black", back_color="white")
 
     save_path = filedialog.asksaveasfilename(
+        initialdir=default_save_path,  # Directorio inicial según el SO
         defaultextension=".png",
-        filetypes=[("PNG files", "*.png"), ("PDF files", "*.pdf")],
+        filetypes=[("PNG files", "*.png")],
         title="Guardar QR como"
     )
     if save_path:
-        if save_path.endswith(".png"):
-            img.save(save_path)
-            messagebox.showinfo("Éxito", f"El QR se ha guardado como PNG en: {save_path}")
-        elif save_path.endswith(".pdf"):
-            pdf = canvas.Canvas(save_path)
-            img_path = "temp_qr.png"
-            img.save(img_path)
-            pdf.drawImage(img_path, 100, 500, 200, 200)  # Ajusta las coordenadas y tamaño del QR
-            pdf.save()
-            os.remove(img_path)
-            messagebox.showinfo("Éxito", f"El QR se ha guardado como PDF en: {save_path}")
-        else:
-            messagebox.showwarning("Formato no válido", "Selecciona un formato válido (PNG o PDF).")
+        img.save(save_path)
+        messagebox.showinfo("Éxito", f"El QR se ha guardado como PNG en: {save_path}")
     else:
         messagebox.showwarning("Cancelado", "No se guardó el QR.")
 
 def actualizar_programa():
-    """Actualiza el programa usando `git pull` y reinicia la aplicación."""
+    """Actualiza el programa usando git pull."""
     try:
-        result = subprocess.run(["git", "pull", "origin", "main"], capture_output=True, text=True)
+        result = subprocess.run(git_command, capture_output=True, text=True)
         if "Already up to date." in result.stdout:
             messagebox.showinfo("Actualización", "El programa ya está actualizado.")
         else:
-            messagebox.showinfo("Actualización", "El programa se actualizó correctamente. Reiniciando...")
-            root.destroy()  # Cierra la ventana actual
-            os.execl(sys.executable, sys.executable, *sys.argv)  # Reinicia el programa
+            messagebox.showinfo("Actualización", "El programa se actualizó correctamente. Reinicia para aplicar los cambios.")
     except Exception as e:
         messagebox.showerror("Error", f"No se pudo actualizar el programa.\n{e}")
-
 
 def cambiar_idioma(idioma):
     """Cambia los textos de la interfaz según el idioma seleccionado."""
     textos = {
         "es": {
-            "title": "Generador de QR de Agata Faucets",
-            "generate": "Generar ",
+            "title": "Generador de QR",
+            "generate": "Generar QR",
             "update": "Buscar Actualizaciones",
             "exit": "Salir",
             "about": "Acerca de",
             "info": "Este programa genera códigos QR a partir de texto."
         },
         "en": {
-            "title": "Agata Faucets QR Generator",
+            "title": "QR Generator",
             "generate": "Generate QR",
             "update": "Check for Updates",
             "exit": "Exit",
@@ -93,7 +93,7 @@ def cambiar_idioma(idioma):
 
 # Configuración principal de la ventana
 root = tk.Tk()
-root.title("Agata Faucets QR Generator")
+root.title("ShadowCrypt-Security")
 root.geometry("800x600")
 root.resizable(False, False)
 
@@ -102,7 +102,12 @@ menu_bar = tk.Menu(root)
 root.config(menu=menu_bar)
 menu_about = tk.Menu(menu_bar, tearoff=0)
 menu_about.add_command(label="Acerca de", command=lambda: messagebox.showinfo("Acerca de", "Este programa genera códigos QR a partir de texto."))
-menu_about.add_command(label="Info", command=lambda: messagebox.showinfo("Info", "Generador de QR por Agata Faucets"))
+menu_about.add_command(label="Info", command=lambda: messagebox.showinfo("Info", 
+    "Información: \n\n"
+    "QRGo v.1.0\n"
+    "Generador avanzado de códigos QR con opciones de personalización.\n\n"
+    "Creador: Ezequiel Tauil (ShadowCrypt-Security)\n"
+    "Más herramientas: https://github.com/EzeTauil"))
 menu_bar.add_cascade(label="Ayuda", menu=menu_about)
 
 menu_language = tk.Menu(menu_bar, tearoff=0)
@@ -111,7 +116,10 @@ menu_language.add_command(label="English", command=lambda: cambiar_idioma("en"))
 menu_bar.add_cascade(label="Idioma", menu=menu_language)
 
 # Título
-label_title = tk.Label(root, text="Agata Faucets QR Generator", font=("Arial", 18, "bold"), fg="blue")
+shadow_label = tk.Label(root, text="Generador de QR", font=("Arial", 28, "bold"), fg="black")
+shadow_label.place(x=239, y=15)
+
+label_title = tk.Label(root, text="Generador de QR", font=("Arial", 28, "bold"), fg="blue")
 label_title.pack(pady=10)
 
 # Texto de entrada
@@ -127,18 +135,19 @@ scrollbar.config(command=entry_text.yview)
 frame_buttons = tk.Frame(root)
 frame_buttons.pack(pady=20)
 
-btn_generate = tk.Button(frame_buttons, text="Generar QR", font=("Arial", 12), bg="green", fg="white", command=generar_qr)
+btn_generate = tk.Button(frame_buttons, text="🖋 Generar QR", font=("Arial", 12), bg="green", fg="white", command=generar_qr)
 btn_generate.grid(row=0, column=0, padx=10)
 
-btn_update = tk.Button(frame_buttons, text="Buscar Actualizaciones", font=("Arial", 12), bg="orange", fg="white", command=actualizar_programa)
+btn_update = tk.Button(frame_buttons, text="🔍 Buscar Actualizaciones", font=("Arial", 12), bg="orange", fg="white", command=actualizar_programa)
 btn_update.grid(row=0, column=1, padx=10)
 
-btn_exit = tk.Button(frame_buttons, text="Salir", font=("Arial", 12), bg="red", fg="white", command=root.quit)
+btn_exit = tk.Button(frame_buttons, text="⛔ Salir", font=("Arial", 12), bg="red", fg="white", command=root.quit)
 btn_exit.grid(row=0, column=2, padx=10)
 
 # Marca registrada
-label_footer = tk.Label(root, text="© 2025 Agata Faucets-Todos los derechos reservados\n Desarrollado por: Ezequiel Tauil", font=("Arial", 10), fg="gray")
+label_footer = tk.Label(root, text="© 2025 ShadowCrypt-Security - Todos los derechos reservados\nDesarrollado por: Ezequiel Tauil", font=("Arial", 10), fg="gray")
 label_footer.pack(side=tk.BOTTOM, pady=10)
 
 # Inicializar la interfaz
 root.mainloop()
+
