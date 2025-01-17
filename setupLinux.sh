@@ -22,7 +22,7 @@ cat << EOF > $RUTA_DESKTOP
 Version=1.0
 Type=Application
 Name=$NOMBRE_PROGRAMA
-Exec=python3 $RUTA_DESTINO/QRGenerate.py
+Exec=/usr/bin/python3 $RUTA_DESTINO/QRGenerate.py
 Icon=$RUTA_DESTINO/qrgo.ico
 Terminal=false
 EOF
