@@ -22,24 +22,53 @@ Requisitos
     Tkinter (Para la interfaz gráfica)
     Pillow (Para manejar imágenes)
     qrcode (Para generar los códigos QR)
+    En Windows: winshell (para el script de instalación).
 
 Instalación
 
-    Clona este repositorio en tu máquina local:
+Clona este repositorio en tu máquina local:
 
-git clone https://github.com/4g4t4-3z3/AgataQR.git
+    git clone https://github.com/4g4t4-3z3/AgataQR.git
 
 Instala las dependencias necesarias:
 
-pip install -r requirements.txt
+    pip install -r requirements.txt
 
 Ejecuta el programa:
 
     python QRGenerator.py
 
+Opcional: Instalación del programa con acceso directo
+
+Si prefieres que el programa tenga un acceso directo y se ejecute como cualquier otra aplicación, sigue estas instrucciones según tu sistema operativo:
+Linux
+
+    Ejecuta el script de instalación:
+
+    chmod +x setup.sh
+    ./setup.sh
+
+    Esto creará un acceso directo en tu menú de aplicaciones. Busca QRGo y ejecútalo.
+
+    El ícono personalizado (icono.ico) y el programa se instalarán automáticamente en las rutas adecuadas.
+
+Windows
+
+    Ejecuta el script de instalación:
+
+python setup.py
+
+Esto creará un acceso directo en tu escritorio con el ícono personalizado.
+Si el módulo winshell no está instalado, instálalo primero:
+
+    pip install winshell
+
+
+
 Contribuciones
 
 Si tienes sugerencias, mejoras o correcciones, no dudes en abrir un "issue" o enviar un "pull request". ¡Toda contribución es bienvenida!
+
 Licencia
 
 Este proyecto está bajo la Licencia MIT. Para más detalles, consulta el archivo LICENSE.
