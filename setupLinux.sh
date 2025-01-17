@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Variables
-NOMBRE_PROGRAMA="Generador de QR"
+NOMBRE_PROGRAMA="QRGenerate"
 RUTA_ICONO="$PWD/qrgo.ico"
 RUTA_SCRIPT="$PWD/QRGenerate.py"
-RUTA_DESTINO="/opt/generador_qr"
-RUTA_DESKTOP="$HOME/.local/share/applications/generador_qr.desktop"
+RUTA_DESTINO="/opt/QRGenerate"
+RUTA_DESKTOP="$HOME/.local/share/applications/QRGenerate.desktop"
 
 # Crear carpeta de destino
 echo "Creando carpeta de instalación..."
