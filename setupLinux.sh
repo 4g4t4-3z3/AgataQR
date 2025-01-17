@@ -31,4 +31,8 @@ EOF
 sudo chmod +x $RUTA_SCRIPT
 chmod +x $RUTA_DESKTOP
 
+# Actualizar caché de aplicaciones
+update-desktop-database ~/.local/share/applications/
+
 echo "Instalación completada. Puedes encontrar '$NOMBRE_PROGRAMA' en tu menú de aplicaciones."
+
